@@ -1,176 +1,267 @@
-project:
-  id: "H-003"
-  
-  Name: "The AI Creative Studio"
-  
-  Track: "Generative AI & Marketing Tech"
-  
-  Tagline: "A local-first pipeline that converts a single product image into multiple ad-ready creative variants with AI-generated captions and an export-ready ZIP bundle in under 30 seconds."
+H-003 | The AI Creative Studio
 
-1- problem_real_world_scenario:
+Track: Generative AI & Marketing Tech
 
-  context: >
-    Marketing teams need to rapidly produce creative variations to test messaging,
-    visuals, and formats across digital advertising channels. Producing multiple variants
-    of product images and captions manually is time-consuming, repetitive, and difficult
-    to scale across campaigns.
+A local-first pipeline that converts a single product image into multiple ad-ready creative variants with AI-generated captions and an export-ready ZIP bundle in under 30 seconds.
 
-  pain_point: >
-    Manual creative production limits experimentation velocity and increases operational cost.
-    Teams spend hours editing images, writing copy, and preparing assets, which delays
-    insights and optimization cycles.
+1. The Problem (Real-World Scenario)
 
-  solution_summary: >
-    The AI Creative Studio automates creative generation by transforming a single product image
-    into multiple stylistic variants and generating short, performance-oriented ad captions.
-    All outputs are packaged into a ZIP bundle for rapid deployment.
+ Modern advertising is built on rapid experimentation — testing visuals, messaging, and formats across digital platforms.
 
-2- expected_end_result:
+However, producing creative assets is:
 
-  user_flow:
-    input: "A product image placed in the input directory."
-    action: "Run the pipeline."
-    output:
-      - "6 creative image variants"
-      - "6 AI-generated ad captions"
-      - "ZIP bundle with all assets"
+i. Time-consuming
 
-  benefits:
-    - "Rapid creative iteration"
-    - "Reduced manual effort"
-    - "Instant deployable assets"
+ii. Repetitive
 
-  example_captions:
-    - "Elevate your style with every step"
-    - "Comfort engineered for all-day motion"
-    - "Performance and aesthetics in one silhouette"
+iii. Manual
 
-3- technical_approach:
+iv. Difficult to scale
 
-  goal: >
-    Build a lightweight, reliable system for automated creative generation
-    without dependency on external image generation APIs.
+v. Even a basic campaign requires:
 
-  system_architecture:
-    image_processing:
-      description: "Generate stylistic variants locally using deterministic transformations via Pillow."
-      variants:
-        - "Warm tone"
-        - "Cool tone"
-        - "High contrast"
-        - "Posterized"
-        - "Blurred background"
-        - "Clean standard"
-    
-    ai_copywriting:
-      description: "Generate short, performance-focused captions using Gemini Flash."
-      constraints:
-        - "Max 10 words"
-        - "No bullets or numbers"
-        - "One caption per line"
-    
-    packaging:
-      description: "Bundle images and captions into a ZIP file for easy distribution and deployment."
+vi. Multiple product images
 
-  workflow: |
-    product.jpg
-        ↓
-    local creative transformations
-        ↓
-    AI caption generation
-        ↓
-    asset packaging
-        ↓
-    deployable zip bundle
+vii. Multiple caption variations
 
-4- tech_stack:
+viii. Exporting and packaging assets
 
-  language: "Python 3.11"
-  
-  image_engine: "Pillow"
-  
-  ai_model: "Google Gemini Flash"
-  
-  config: "python-dotenv"
-  
-  packaging: "zipfile"
-  
-  orchestration: "Python script"
+This slows down experimentation, delays insights, and increases cost per iteration.
 
-  rationale: >
-    The stack is optimized for speed, reliability, resource efficiency, and local execution.
+2. The Solution
 
-5- challenges_and_learnings:
-  
-  challenge_1:
-  
-  issue: "External AI image APIs were unreliable due to permission failures, version mismatches, and rate limits."
-  
-  solution: "Switched to deterministic offline image generation."
+The AI Creative Studio automates this workflow.
 
-  outcome: "Consistent, fast, and free output."
+Users supply one product image, and the system generates:
 
-  challenge_2:
+Multiple creative image variants
 
-  issue: "AI-generated captions were initially verbose and inconsistent."
+Short, high-impact ad captions
 
-  solution: "Applied strict prompt constraints and output cleanup."
+A packaged ZIP bundle for deployment
 
-  outcome: "Clear, short, and usable ad copy."
+The entire workflow becomes:
 
-6- visual_proof:
-  
-  creative_variants:
-    - "Warm tone"
-    - "Cool tone"
-    - "High contrast"
-    - "Posterized"
-    - "Blurred background"
-    - "Clean standard"
+Drop → Generate → Deploy
 
-  exported_assets:
-    - "Creative images"
-    - "Captions file"
-    - "ZIP bundle"
+Eliminating manual editing, copywriting, and exporting.
 
-7- how_to_run:
-  clone: |
-    git clone https://github.com/thought1003/groundtruth-hackathon.git
-    cd groundtruth-hackathon
+3. Expected End Result
+Input
 
-  install_dependencies: |
-    pip install pillow google-generativeai python-dotenv
+A product image placed in the input directory.
 
-  configure_api_key: |
-    echo GEMINI_API_KEY="your_key_here" > .env
+Action
 
-  add_input_image: |
-    Place a product image at:
-    assets/input/product.jpg
+Run the pipeline.
 
-  run_pipeline: |
-    python -m src.main
+Output
 
-8- output_structure:
-  directories:
-    - "assets/output/images/"
-    - "assets/output/captions/captions.txt"
-    - "assets/output/creatives_bundle.zip"
+A complete creative asset kit, including:
 
-  description: >
-    Output includes image variants, captions, and a compressed ZIP archive
-    ready for distribution or campaign upload.
+6 creative image variants
 
-9- future_work:
-  enhancements:
-    - "Background generation"
-    - "Style presets"
-    - "Platform-specific formats"
-    - "Brand color extraction"
-    - "Bulk processing"
-    - "Web interface"
+6 AI-generated ad captions
 
-10- metadata:
-  author: "Aryan Singh"
-  event: "GroundTruth AI Hackathon"
-  timeline: "December 2025"
+ZIP bundle with all assets
+
+Example Captions
+Elevate your style with every step
+Comfort engineered for all-day motion
+Performance and aesthetics in one silhouette
+
+
+This enables fast creative iteration without designers or external tools.
+
+4. Technical Approach
+
+The system was designed to be:
+
+Lightweight
+
+Fast
+
+Reliable
+
+Cost-free
+
+Local-first
+
+Avoiding dependency on unstable or expensive image generation APIs.
+
+Architecture
+1. Local Image Processing (Pillow)
+
+Generates stylistic variants from a single image:
+
+Warm tone
+
+Cool tone
+
+High contrast
+
+Posterized
+
+Blur background
+
+Standard cleaned
+
+2. AI Caption Generation (Gemini Flash)
+
+Creates short, performance-optimized ad copy using constrained prompting:
+
+Rules:
+
+Max 10 words
+
+Punchy, modern tone
+
+No bullets or numbers
+
+One caption per line
+
+3. Packaging
+
+All images and captions are zipped automatically into a shareable bundle.
+
+5. System Workflow
+product.jpg
+    ↓
+local creative transformations
+    ↓
+AI caption generation
+    ↓
+asset packaging
+    ↓
+deployable zip bundle
+
+6. Tech Stack
+Component	Technology
+Language	Python 3.11
+Image Engine	Pillow
+AI Model	Google Gemini Flash
+Config	python-dotenv
+Packaging	zipfile
+Orchestration	Python script
+Why this stack?
+
+Fast
+
+Cheap (free)
+
+Reliable
+
+Easy to run locally
+
+Zero GPU requirements
+
+7. Challenges & Learnings
+1. Unreliable AI Image APIs
+
+Attempts with remote models failed due to:
+
+Permission issues
+
+Version mismatches
+
+Rate limits
+
+Fix: Move image generation fully offline.
+
+2. Controlling AI Output
+
+Initial captions were verbose and inconsistent.
+
+Fix: Strict prompt rules and output cleanup.
+
+Result: Short, clear, and usable ad copy.
+
+8. Visual Proof (Sample Output)
+
+Example generated variant:
+
+<img src="assets/output/images/creative_1.jpg" width="300"/>
+
+(Additional variants available in the repository.)
+
+9. Output Structure
+assets/output/
+├── images/
+│   ├── creative_1.jpg
+│   ├── creative_2.jpg
+│   ├── creative_3.jpg
+│   ├── creative_4.jpg
+│   ├── creative_5.jpg
+│   └── creative_6.jpg
+├── captions/
+│   └── captions.txt
+└── creatives_bundle.zip
+
+10. How to Run Locally
+1. Clone Repository
+git clone https://github.com/thought1003/groundtruth-hackathon.git
+cd groundtruth-hackathon
+
+2. Install Dependencies
+pip install pillow google-generativeai python-dotenv
+
+3. Configure API Key
+
+Create .env file with:
+
+GEMINI_API_KEY=your_key_here
+
+4. Add Input Image
+
+Place a product image at:
+
+assets/input/product.jpg
+
+5. Run Pipeline
+python -m src.main
+
+11. Result & Impact
+
+The AI Creative Studio provides:
+
+Rapid creative generation
+
+Zero manual editing
+
+Deployable assets in seconds
+
+This enables faster experimentation, lower execution cost, and seamless deployment.
+
+12. Future Work
+
+Planned enhancements:
+
+Background generation
+
+Style presets
+
+Platform-specific export formats
+
+Brand color extraction
+
+Bulk processing
+
+Web-based UI
+
+13. Metadata
+
+Problem ID: H-003
+
+Name: The AI Creative Studio
+
+Track: Generative AI & Marketing Tech
+
+Status: MVP Implemented
+
+Timeline: December 2025
+
+Author: Aryan Singh
+
+🏁 Summary
+
+This system automates creative production end-to-end, generating image variants, ad captions, and exportable assets from a single input image — enabling faster iteration and scalable experimentation for modern marketing teams.
