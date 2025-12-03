@@ -1,1 +1,4 @@
-
+pillow
+google-generativeai
+python-dotenv
+numpy
