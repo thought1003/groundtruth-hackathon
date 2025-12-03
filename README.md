@@ -1,10 +1,14 @@
 project:
   id: "H-003"
-  name: "The AI Creative Studio"
-  track: "Generative AI & Marketing Tech"
-  tagline: "A local-first pipeline that converts a single product image into multiple ad-ready creative variants with AI-generated captions and an export-ready ZIP bundle in under 30 seconds."
+  
+  Name: "The AI Creative Studio"
+  
+  Track: "Generative AI & Marketing Tech"
+  
+  Tagline: "A local-first pipeline that converts a single product image into multiple ad-ready creative variants with AI-generated captions and an export-ready ZIP bundle in under 30 seconds."
 
 1- problem_real_world_scenario:
+
   context: >
     Marketing teams need to rapidly produce creative variations to test messaging,
     visuals, and formats across digital advertising channels. Producing multiple variants
@@ -22,6 +26,7 @@ project:
     All outputs are packaged into a ZIP bundle for rapid deployment.
 
 2- expected_end_result:
+
   user_flow:
     input: "A product image placed in the input directory."
     action: "Run the pipeline."
@@ -41,6 +46,7 @@ project:
     - "Performance and aesthetics in one silhouette"
 
 3- technical_approach:
+
   goal: >
     Build a lightweight, reliable system for automated creative generation
     without dependency on external image generation APIs.
@@ -78,28 +84,42 @@ project:
     deployable zip bundle
 
 4- tech_stack:
+
   language: "Python 3.11"
+  
   image_engine: "Pillow"
+  
   ai_model: "Google Gemini Flash"
+  
   config: "python-dotenv"
+  
   packaging: "zipfile"
+  
   orchestration: "Python script"
 
   rationale: >
     The stack is optimized for speed, reliability, resource efficiency, and local execution.
 
 5- challenges_and_learnings:
+  
   challenge_1:
-    issue: "External AI image APIs were unreliable due to permission failures, version mismatches, and rate limits."
-    solution: "Switched to deterministic offline image generation."
-    outcome: "Consistent, fast, and free output."
+  
+  issue: "External AI image APIs were unreliable due to permission failures, version mismatches, and rate limits."
+  
+  solution: "Switched to deterministic offline image generation."
+
+  outcome: "Consistent, fast, and free output."
 
   challenge_2:
-    issue: "AI-generated captions were initially verbose and inconsistent."
-    solution: "Applied strict prompt constraints and output cleanup."
-    outcome: "Clear, short, and usable ad copy."
+
+  issue: "AI-generated captions were initially verbose and inconsistent."
+
+  solution: "Applied strict prompt constraints and output cleanup."
+
+  outcome: "Clear, short, and usable ad copy."
 
 6- visual_proof:
+  
   creative_variants:
     - "Warm tone"
     - "Cool tone"
